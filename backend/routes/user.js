@@ -172,4 +172,47 @@ router.get("/me",authMiddleware,async (req,res)=>{
 
     })
 });
+
+router.post('/follow/:targetUserId', authMiddleware, async (req, res) => {
+    const { targetUserId } = req.params;
+    const currentUserId = req.userId;
+
+    try {
+        await Following.updateOne(
+            { user: currentUserId },
+            { $addToSet: { following: targetUserId } },
+            { upsert: true }
+        );
+        await Follower.updateOne(
+            { user: targetUserId },
+            { $addToSet: { followers: currentUserId } },
+            { upsert: true }
+        );
+
+        res.status(200).json({ message: 'Successfully followed the user.' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error following the user.', error: error.message });
+    }
+});
+
+router.post('/unfollow/:targetUserId', authMiddleware, async (req, res) => {
+    const { targetUserId } = req.params;
+    const currentUserId = req.userId;
+
+    try {
+        await Following.updateOne(
+            { user: currentUserId },
+            { $pull: { following: targetUserId } }
+        );
+        await Follower.updateOne(
+            { user: targetUserId },
+            { $pull: { followers: currentUserId } }
+        );
+
+        res.status(200).json({ message: 'Successfully unfollowed the user.' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error unfollowing the user.', error: error.message });
+    }
+});
+
 module.exports= router;
