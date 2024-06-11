@@ -102,15 +102,10 @@ router.get('/postcount',authMiddleware,async(req,res)=>{
 })
 router.get('/users', authMiddleware, async (req, res) => {
     try {
-        // Fetch all users except the current user
         const users = await User.find({ _id: { $ne: req.userId } });
-        // Fetch the current user's following list
         const currentUserFollowing = await Following.findOne({ user: req.userId });
-    
-      // Map through all users to add following status and count
         const usersWithFollowingInfo = await Promise.all(users.map(async (user) => {
         const isFollowing = currentUserFollowing.following.includes(user._id);
-        // Count the number of following for each user
         const followingCountDoc = await Following.findOne({ user: user._id });
         const followingCount = followingCountDoc ? followingCountDoc.following.length : 0;
         return {
