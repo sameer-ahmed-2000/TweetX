@@ -4,5 +4,5 @@ const feedRouter=require("./feed");
 const router=express.Router();
 
 router.use("/user",userRouter);
-router.use("/account",feedRouter)
+router.use("/feed",feedRouter)
 module.exports = router;
