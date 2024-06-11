@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
-const {User, Follower, Following, Post}=require("../db");
+const {Following, Post}=require("../db");
+const { authMiddleware } = require('../middleware');
 
-router.post('/posts', authenticateToken, async (req, res) => {
+router.post('/posts', authMiddleware, async (req, res) => {
     try {
         const { content } = req.body;
         const authorId = req.user.id;
