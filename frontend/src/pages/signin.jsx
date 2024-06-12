@@ -16,7 +16,7 @@ export const Signin=()=>{
     return <div >
         <div className="py-6 px-8 font-sans font-semibold text-custom-red">TweetX</div>
         <div className="px-8">
-        <RedirectButton label={"Create account"}/>
+        <RedirectButton label={"Create account"} to={'/signup'}/>
         <div className="grid grid-cols-9">
         <div className="col-span-3 ">
             <div className="py-14 font-sans font-bold text-custom-black">
@@ -24,6 +24,7 @@ export const Signin=()=>{
             </div>
             <InputBox onChange={(e)=> setUsername(e.target.value)} placeholder={"Email"} />
             <PasswordBox placeholder={"Password"} onChange={(e)=>setPassword(e.target.value)}/>
+            {error && <div className="text-red-500 text-sm pt-2">{error}</div>}
             <div className="flex justify-between items-center py-0">
             <span>Forgot password?</span>
             <FunctionButton onClick={handleSignin} label={loading?"Logging in...":"Login"}/>
