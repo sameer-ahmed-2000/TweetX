@@ -11,8 +11,7 @@ const { authMiddleware } = require("../middleware")
 
 const signupSchema=zod.object({
     username: zod.string().email(),
-    firstName: zod.string(),
-    lastName: zod.string(),
+    fullName: zod.string(),
     password: zod.string(),
     
 })
@@ -29,13 +28,11 @@ router.post("/signup",async (req,res)=>{
     if (existingUser){
         return res.status(411).json({
             message:"Email is already taken"
-            
         })
     }
     const dbUser = await User.create({
         username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        fullName: req.body.fullName,
         password: req.body.password,
     });
     const userId = dbUser._id;
@@ -121,8 +118,7 @@ router.get('/users', authMiddleware, async (req, res) => {
             return {
                 _id: user._id,
                 username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName,
+                fullName: user.fullName,
                 isFollowing: isFollowing,
                 followingCount: followingCount
             };
@@ -153,8 +149,7 @@ router.get('/followers', authMiddleware, async (req, res) => {
             return {
                 _id: follower._id,
                 username: follower.username,
-                firstName: follower.firstName,
-                lastName: follower.lastName,
+                fullName: follower.fullName,
                 isFollowing,
                 followingCount
             };
@@ -179,8 +174,7 @@ router.get('/following', authMiddleware, async (req, res) => {
             return {
                 _id: followedUser._id,
                 username: followedUser.username,
-                firstName: followedUser.firstName,
-                lastName: followedUser.lastName,
+                fullName: followedUser.fullName,
                 followingCount
             };
         }));
@@ -195,8 +189,7 @@ router.get("/me",authMiddleware,async (req,res)=>{
     const user= await User.findById(req.userId);
     res.json({
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        fullName: user.fullName,
         password: user.password
 
     })
