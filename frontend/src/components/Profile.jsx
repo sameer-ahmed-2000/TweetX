@@ -1,10 +1,14 @@
 
 
+import useUserProfile from '../hooks/useUserProfile';
 import ProfileTab from './ProfileTab';
 
 
-export const Profile=()=>{
+export const Profile=({userId})=>{
 
+    const {profile, loading, error} = useUserProfile(userId);
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error:{error.message}</div>
     return(
         <div className="md:grid grid-cols-7">
             <div className="col-span-2">
@@ -17,11 +21,11 @@ export const Profile=()=>{
                 </div>
                 <div className=" grid grid-rows-3">
                 <div className="row-span-1"></div>
-                    <div className="px-3 py-4 font-bold row-span-1 font-sans font-bold text-custom-black2">Arjun Reddy</div>
+                    <div className="px-3 py-4 font-bold row-span-1 font-sans font-bold text-custom-black2">{profile.fullName}</div>
                     <div className="pt-3 text-sm text-custom-ash row-span-1">
-                        <a className="px-3">100 Posts</a>
-                        <a className="px-3">100 Posts</a>
-                        <a className="px-3">100 Posts</a>
+                        <a className="px-3">Posts : {profile.postCount}</a>
+                        <a className="px-3">Followers : {profile.followerCount}</a>
+                        <a className="px-3">Following : {profile.followingCount}</a>
                     </div>
                 </div>
             </div>

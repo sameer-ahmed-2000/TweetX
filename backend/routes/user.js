@@ -130,6 +130,32 @@ router.get('/users', authMiddleware, async (req, res) => {
     }
 });
 
+router.get('/users/:userId', authMiddleware, async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await User.findById(userId).lean();
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const currentUserFollowingDoc = await Following.findOne({ user: req.userId });
+        const isFollowing = currentUserFollowingDoc ? currentUserFollowingDoc.following.some(follow => follow.toString() === userId) : false;
+        const followersCount = await Following.countDocuments({ following: userId });
+
+        const userWithFollowingInfo = {
+            _id: user._id,
+            username: user.username,
+            fullName: user.fullName,
+            isFollowing: isFollowing,
+            followersCount: followersCount
+        };
+
+        res.json(userWithFollowingInfo);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching user', error: error.message });
+    }
+});
 
 router.get('/followers', authMiddleware, async (req, res) => {
     try {
@@ -230,7 +256,7 @@ router.post('/follow', authMiddleware, async (req, res) => {
 router.post('/unfollow', authMiddleware, async (req, res) => {
     const session = await mongoose.startSession();
     session.startTransaction();
-    const { targetUserId } = req.body; // Get targetUserId from the request body
+    const { targetUserId } = req.body;
     const currentUserId = req.userId;
 
     try {
