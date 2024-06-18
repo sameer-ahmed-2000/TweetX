@@ -7,7 +7,7 @@
     "install-server": "cd backend && npm install",
     "start-server": "cd backend && node index.js",
     "install-client": "cd frontend && npm install",
-    "build-client": "cd frontend && npm install --verbose && npm run build",
+    "build-client": "cd frontend && vite build",
     "preview-client": "cd frontend && npm run preview"
   },
   "keywords": [],
