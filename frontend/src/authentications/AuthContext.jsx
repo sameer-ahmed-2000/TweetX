@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
         console.log('Checking for token in localStorage...');
         const token = localStorage.getItem('token');
         if (token) {
-            console.log('Token found:', token);
+            console.log('Token found:');
             setIsAuthenticated(true);
         } else {
             console.log('No token found');
