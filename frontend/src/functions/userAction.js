@@ -12,8 +12,6 @@ export const useAddUser = () => {
             if(!usedIds.includes(id)){
                 set(userStateFamily(id), user);
                 set(userUsedIdsAtom, (users) => [...users, id]);
-            }else{
-                console.warn(`User with ID ${id} already exists`)
             }
         },
         []

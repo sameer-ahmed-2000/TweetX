@@ -13,8 +13,6 @@ export const useAddFollower = () => {
             if(!usedIds.includes(id)){
                 set(followerStateFamily(id), user);
                 set(followerUsedIdsAtom, (users) => [...users, id]);
-            }else{
-                console.warn(`User with ID ${id} already exists`)
             }
         },
         []
