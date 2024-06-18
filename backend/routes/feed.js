@@ -19,7 +19,7 @@ router.get('/myposts', authMiddleware, async (req, res) => {
     try {
         const myPosts = await Post.find({ author: req.userId })
                                     .sort({ createdAt: -1 }) // Sort by newest first
-                                    .populate('author', 'username');
+                                    .populate('author', 'fullName');
         res.json(myPosts);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -33,7 +33,7 @@ router.get('/feed', authMiddleware, async (req, res) => {
 
         const posts = await Post.find({ author: { $in: followingIds } })
                                 .sort({ createdAt: -1 }) // Sort by newest first
-                                .populate('author', 'username');
+                                .populate('author', 'fullName');
         res.json(posts);
     } catch (error) {
         res.status(500).json({ message: error.message });

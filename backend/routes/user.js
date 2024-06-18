@@ -77,8 +77,8 @@ router.post("/signin",async (req,res)=>{
 router.get('/followercount', authMiddleware, async (req, res) => {
     try {
         const followersDoc = await Follower.findOne({ user: req.userId });
-        const numberOfFollowers = followersDoc ? followersDoc.following.length : 0;
-        res.json({ numberOfFollowers });
+        const numberOfFollowers=followersDoc ? followersDoc.followers.length : 0;
+        res.json({numberOfFollowers})
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -107,7 +107,7 @@ router.get('/postcount',authMiddleware,async(req,res)=>{
 })
 router.get('/users', authMiddleware, async (req, res) => {
     try {
-        const users = await User.find({}).lean();
+        const users = await User.find({_id:{$ne: req.userId}}).lean();
 
         const currentUserFollowingDoc = await Following.findOne({ user: req.userId });
         const currentUserFollowingIds = currentUserFollowingDoc ? currentUserFollowingDoc.following.map(follow => follow.toString()) : [];
@@ -181,7 +181,7 @@ router.get('/followers', authMiddleware, async (req, res) => {
             };
         }));
 
-        res.json({ followersDetails });
+        res.json(followersDetails );
     } catch (error) {
         res.status(500).send(error.message);
     }
