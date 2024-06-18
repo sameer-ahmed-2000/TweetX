@@ -10,7 +10,6 @@ export const followingStateFamily = atomFamily({
     }),
 });
 
-// You need to keep track of which ids are being used
 export const followingUsedIdsAtom = atom({
     key: 'followingUsedIdsAtom',
     default: [],

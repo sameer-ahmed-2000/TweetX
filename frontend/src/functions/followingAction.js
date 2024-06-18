@@ -1,5 +1,3 @@
-// userActions.js
-
 import { useRecoilCallback, useSetRecoilState } from 'recoil';
 import { followingStateFamily, followingUsedIdsAtom } from '../atoms/FollowingDetails';
 

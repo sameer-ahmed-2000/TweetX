@@ -8,15 +8,10 @@ import { User} from "../components/User"
 export const Main=()=>{
     return(
         <div>
-            <NavigationBar></NavigationBar>
             <div className="py-1"></div>
             <RecoilRoot>
-                {/* <User></User> */}
-            <Profile></Profile>
+            <NavigationBar></NavigationBar>
             </RecoilRoot>
-            
-            {/* <User></User> */}
-            {/* <Feed></Feed> */}
         </div>
         
     )

@@ -14,7 +14,7 @@ export const Profile=({userId})=>{
             <div className="col-span-2">
 
             </div>
-            <div className="col-span-3">
+            <div className="pb-8 col-span-3">
             <div className="flex items-center bg-white rounded-lg">
                 <div className="  px-7 mr-4">
                     <div className=" w-20 h-20 border-2  rounded-full"></div>

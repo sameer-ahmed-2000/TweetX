@@ -6,13 +6,19 @@ import FollowList from './FollowList';
 import { useFetchFollowers } from '../hooks/useFetchFollwer';
 import FollowingList from './FollowingList';
 import { useFetchFollowing } from '../hooks/useFetchFollowing';
+import { useRecoilValue } from 'recoil';
+import { useFetchUserPosts } from '../hooks/useFetchPosts';
+import { userPostsState } from '../atoms/postsAtoms';
 
 
 
 const ProfileTab = () => {
+
+    const userPosts=useRecoilValue(userPostsState);
     useFetchFollowers('user/followers');
     useFetchFollowing('user/following');
     const [activeTab, setActiveTab] = useState('posts');
+    useFetchUserPosts();
 
     const tabStyle = (tab) => ({
         cursor: 'pointer',
@@ -28,20 +34,24 @@ const ProfileTab = () => {
             <div className="border border-gray-300"></div>
             
                 <nav className="sticky top-0 flex text-sm text-custom-ash justify-center ">
+                
                     {['posts', 'followers', 'following'].map((tab) => (
                         <div
                             key={tab}
                             style={tabStyle(tab)}
                             onClick={() => setActiveTab(tab)}
-                            className="text-lg"
+                            className="flex items-center gap-2 text-lg"
                         >
+                            <img src="https://img.icons8.com/?size=100&id=gQyeH2JWpHth&format=png&color=000000" alt={`${tab} icon`} className="h-4 w-4"></img>
                             {tab.charAt(0).toUpperCase() + tab.slice(1)}
                         </div>
                     ))}
                 </nav>
             
             <div className="pt-4">
-                {activeTab === 'posts' && <div><UserCard></UserCard></div>}
+                {activeTab === 'posts' && (<div>{userPosts.map((post)=>(
+                    <UserCard key={post._id} post={post}/>
+                ))}</div>)}
                 {activeTab === 'followers' && (
                     <div>
                         <FollowList></FollowList>

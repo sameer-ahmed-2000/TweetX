@@ -4,6 +4,7 @@ import axiosInstance from '../functions/axiosInstance';
 import { FollowingButton } from './FollowingButton';
 
 function FollowingItem({userId}){
+    
     const [user,setUser]=useRecoilState(followingStateFamily(userId));
     const handleFollowUser = async () => {
         try {
@@ -18,6 +19,7 @@ function FollowingItem({userId}){
         try {
         await axiosInstance.post('user/unfollow', { targetUserId: userId });
         setUser(prev => ({ ...prev, isFollowing: false }));
+        
         } catch (error) {
         console.error('Error unfollowing user:', error);
         }

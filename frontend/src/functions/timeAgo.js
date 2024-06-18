@@ -1,4 +1,3 @@
-// src/utils/timeAgo.js
 const timeAgo = (date) => {
         const now = new Date();
         const postDate = new Date(date);

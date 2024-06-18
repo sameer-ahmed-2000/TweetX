@@ -9,8 +9,6 @@ export function useSignin() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-
-
     const handleSignin = async () => {
         if (!username || !password) {
             setError('Please fill in all fields');
