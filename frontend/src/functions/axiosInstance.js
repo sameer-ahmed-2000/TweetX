@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from '../functions/getToken';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://tweetx-w7n0.onrender.com/',
+    baseURL: 'https://tweetx-w7n0.onrender.com/api/v1/',
     headers: {
         'Content-Type': 'application/json',
     },
