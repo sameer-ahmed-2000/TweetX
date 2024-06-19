@@ -13,10 +13,10 @@ const useUserProfile = (userId) => {
         const fetchProfile = async () => {
         try {
             const token=getToken();
-            const userDetails = await axios.get('http://localhost:3001/api/v1/user/me', { headers: { Authorization: `Bearer ${token}` } });
-            const postCount = await axios.get('http://localhost:3001/api/v1/user/postcount', { headers: { Authorization: `Bearer ${token}` } });
-            const followerCount = await axios.get('http://localhost:3001/api/v1/user/followercount', { headers: { Authorization: `Bearer ${token}` } });
-            const followingCount = await axios.get('http://localhost:3001/api/v1/user/followingcount', { headers: { Authorization: `Bearer ${token}` } });
+            const userDetails = await axios.get('https://tweetx-w7n0.onrender.com/api/v1/user/me', { headers: { Authorization: `Bearer ${token}` } });
+            const postCount = await axios.get('https://tweetx-w7n0.onrender.com/api/v1/user/postcount', { headers: { Authorization: `Bearer ${token}` } });
+            const followerCount = await axios.get('https://tweetx-w7n0.onrender.com/api/v1/user/followercount', { headers: { Authorization: `Bearer ${token}` } });
+            const followingCount = await axios.get('https://tweetx-w7n0.onrender.com/api/v1/user/followingcount', { headers: { Authorization: `Bearer ${token}` } });
 
             setProfile({
                 fullName: userDetails.data.fullName,

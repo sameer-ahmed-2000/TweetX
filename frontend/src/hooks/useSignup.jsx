@@ -18,7 +18,7 @@ export function useSignup() {
         setLoading(true);
         setError('');
         try {
-            const response = await axios.post('http://localhost:3001/api/v1/user/signup', {
+            const response = await axios.post('https://tweetx-w7n0.onrender.com/api/v1/user/signup', {
                 username,
                 fullName,
                 password
