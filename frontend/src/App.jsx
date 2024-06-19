@@ -1,10 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Signin } from "./pages/signin"
-import { Main } from './pages/main'
+import { Main } from './pages/mainpage'
 import { Signup } from './pages/signup'
 import { AuthProvider } from './authentications/AuthContext'
 import { ProtectedRoute } from './authentications/ProtectedRoute'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 function App() {
 
@@ -12,10 +14,10 @@ function App() {
     <AuthProvider>
     <BrowserRouter>
     <Routes>
-      <Route path='/signin' element={<ProtectedRoute><Signin></Signin></ProtectedRoute>}></Route>
+      <Route path="/" element={<Signin />} />
       <Route path='/signup' element={<ProtectedRoute><Signup></Signup></ProtectedRoute>}></Route>
-      <Route path='/main' element={<ProtectedRoute><Main></Main></ProtectedRoute>}></Route>
-      <Route path='*' element={<Navigate to='/main'/>}/>
+      <Route path='/mainpage' element={<ProtectedRoute><Main></Main></ProtectedRoute>}></Route>
+      <Route path='*' element={<Navigate to='/mainpage'/>}/>
     </Routes>
     </BrowserRouter>
     </AuthProvider>

@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { useRecoilValue } from "recoil";
 import { followerUsedIdsAtom } from "../atoms/FollowerDetails";
 import FollowerItem from "./FollowerItem";

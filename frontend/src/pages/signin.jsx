@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { FunctionButton } from '../components/FunctionButton';
 import { InputBox } from "../components/InputBox.1";
 import { PasswordBox } from '../components/PasswordBox';
@@ -32,7 +35,7 @@ export const Signin=()=>{
         </div>
         <div className="col-span-1"></div>
         <div className="col-span-5" >
-        <img className="py-2 w-21 h-21 mx-auto mb-10 rounded-lg float-right" src="./src/images/image.png" alt="Image description" />
+        <img className="py-2 w-21 h-21 mx-auto mb-10 rounded-lg float-right" src="./public/src/images/image.png" alt="Image description" />
         </div>
         </div>
     </div>

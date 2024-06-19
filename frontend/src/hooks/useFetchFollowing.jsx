@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import axiosInstance from '../functions/axiosInstance';
-import { useAddfollowing } from '../functions/followingAction';
+import axiosInstance from '../action/axiosInstance';
+import { useAddfollowing } from '../action/followingAction';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export const useFetchFollowing = (endpoint) => {
     const addFollowing = useAddfollowing();

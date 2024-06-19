@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export function InputBox({ placeholder, onChange }) {
     return(
         <div className="py-6">

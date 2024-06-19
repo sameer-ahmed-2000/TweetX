@@ -3,6 +3,9 @@ import { InputBox } from "../components/InputBox.1";
 import { PasswordBox } from '../components/PasswordBox';
 import { RedirectButton } from '../components/RedirectButton';
 import { useSignup } from '../hooks/useSignup';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export const Signup=()=>{
     const {
         username,

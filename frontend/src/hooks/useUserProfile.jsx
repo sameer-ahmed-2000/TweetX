@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { userProfileAtom } from '../atoms/UserProfileAtom';
-import { getToken } from '../functions/getToken';
+import { getToken } from '../action/getToken';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const useUserProfile = (userId) => {
     const [profile, setProfile] = useRecoilState(userProfileAtom);

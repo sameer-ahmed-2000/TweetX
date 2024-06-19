@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
 
 export const userPostsState = atom({
     key: 'userPostsState',

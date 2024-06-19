@@ -1,8 +1,10 @@
 import { useRecoilState } from "recoil";
 import { followerStateFamily } from "../atoms/FollowerDetails";
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
 import { FollowingButton } from './FollowingButton';
 import { FollowButton } from './FollowButton';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 function FollowerItem({userId}){
     const [user,setUser]=useRecoilState(followerStateFamily(userId));

@@ -1,5 +1,5 @@
 import React from 'react';
-import timeAgo from '../functions/timeAgo';
+import timeAgo from '../action/timeAgo';
 
 const UserCard = ({post}) => {
     const { author = {}, createdAt = '', content = '' } = post || {};

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Feed } from "./Feed";
 import { Profile } from "./Profile";
 import { User } from "./User";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export const NavigationBar = () => {
     const [activeTab, setActiveTab] = useState('Feed');

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import axiosInstance from '../functions/axiosInstance';
-import { useAddUser } from '../functions/userAction';
+import axiosInstance from '../action/axiosInstance';
+import { useAddUser } from '../action/userAction';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export const useFetchUsers = (endpoint) => {
   const addUser = useAddUser();

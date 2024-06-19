@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getToken } from '../functions/getToken';
+import { getToken } from '../action/getToken';
 
 const axiosInstance = axios.create({
     baseURL: 'https://tweetx-w7n0.onrender.com/api/v1/',

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export function useSignin() {
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ export function useSignin() {
                 password
             });
             localStorage.setItem('token', response.data.token);
-            navigate('/main');
+            navigate('/mainpage');
         } catch (err) {
             setError('Sign in failed, Please check your credentials and try again');
         } finally {

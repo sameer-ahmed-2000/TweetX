@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export function RedirectButton({label,to}){
     const navigate = useNavigate();
     const handleClick = () => {

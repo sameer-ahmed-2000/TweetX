@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { userStateFamily } from '../atoms/UserDetailsAtomFamily';
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
 import { FollowingButton } from './FollowingButton';
 import { FollowButton } from './FollowButton';
 

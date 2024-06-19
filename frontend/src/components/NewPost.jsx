@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
 
 export const NewPostCard = ({ onPostSubmit }) => {
     const [content, setContent] = useState('');

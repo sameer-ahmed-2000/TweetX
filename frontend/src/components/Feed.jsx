@@ -5,6 +5,8 @@ import { useFetchOtherPosts } from "../hooks/useFetchPosts";
 import { useState } from "react";
 import { FollowButton } from "./FollowButton";
 import { NewPostCard } from "./NewPost";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 export const Feed=()=>{

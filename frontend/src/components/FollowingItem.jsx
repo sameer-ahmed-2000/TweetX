@@ -1,6 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { useRecoilState } from "recoil";
 import { followingStateFamily } from "../atoms/FollowingDetails";
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
 import { FollowingButton } from './FollowingButton';
 
 function FollowingItem({userId}){

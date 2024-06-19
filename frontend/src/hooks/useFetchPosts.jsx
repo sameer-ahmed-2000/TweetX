@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 import { fetchUserPostsSelector, otherPostsState, userPostsState } from '../atoms/postsAtoms';
-import axiosInstance from '../functions/axiosInstance';
+import axiosInstance from '../action/axiosInstance';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 export const useFetchUserPosts = () => {
