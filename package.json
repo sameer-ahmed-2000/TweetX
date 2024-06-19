@@ -7,9 +7,9 @@
     "install-server": "cd backend && npm install",
     "start-server": "cd backend && node index.js",
     
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "cd frontend && vite",
+    "build": "cd frontend && vite build",
+    "preview": "cd frontend && vite preview"
   },
   "keywords": [],
   "author": "",
