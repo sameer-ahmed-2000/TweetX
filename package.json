@@ -1,5 +1,5 @@
 {
-  "name": "tweetx-deploy",
+  "name": "tweetx",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,9 +7,9 @@
     "install-server": "cd backend && npm install",
     "start-server": "cd backend && node index.js",
     
-    "dev": "cd frontend && vite",
-    "build": "cd frontend && vite build",
-    "preview": "cd frontend && vite preview"
+    "install-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "start-frontend": "cd frontend && npm run dev"
   },
   "keywords": [],
   "author": "",
