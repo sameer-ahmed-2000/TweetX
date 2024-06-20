@@ -1,6 +1,6 @@
 # TweetX
 
-## Technology Stack:
+## Technology Stack: Node js, Express js, React(hooks, custom hooks, recoil), Tailwind Css
 
 ### MERN Stack: Chose MongoDB for its flexibility with schema-less data storage, Express.js for building robust APIs, React for its component-based architecture and rich ecosystem of libraries, and Node.js for its efficient handling of backend operations, ensuring a cohesive and scalable application architecture.
 State Management with Recoil:
