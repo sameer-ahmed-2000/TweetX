@@ -41,7 +41,7 @@ export const Signup=()=>{
         </div>
         <div className="col-span-1"></div>
         <div className="col-span-5" >
-        <img className="pl-24 w-21 h-21 mx-auto mb-10 rounded-lg float-right" src="../public/image.png" alt="Image description" />
+        <img className="pl-24 w-21 h-21 mx-auto mb-10 rounded-lg float-right" src="/image.png" alt="Image description" />
         </div>
         </div>
     </div>
