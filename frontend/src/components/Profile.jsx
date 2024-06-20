@@ -31,12 +31,11 @@ export const Profile=({userId})=>{
             </div>
             <div className="flex items-center bg-white rounded-lg">
             <ProfileTab></ProfileTab>
-            
             </div>
             
             </div>
             <div className="col-span-1">
-
+            
             </div>
         </div>
     )

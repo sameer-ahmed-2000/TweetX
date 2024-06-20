@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useAuth } from '../authentications/AuthContext';
 
 export function useSignup() {
+    const {login}=useAuth();
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [fullName, setFullname] = useState('');
@@ -26,7 +28,8 @@ export function useSignup() {
                 password
             });
             localStorage.setItem('token', response.data.token);
-            navigate('/mainpage');
+            login(response.data.token);
+            navigate('/main');
         } catch (err) {
             setError('Sign up failed, Please check your credentials and try again');
         } finally {

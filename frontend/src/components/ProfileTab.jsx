@@ -9,6 +9,7 @@ import { useFetchFollowing } from '../hooks/useFetchFollowing';
 import { useRecoilValue } from 'recoil';
 import { useFetchUserPosts } from '../hooks/useFetchPosts';
 import { userPostsState } from '../atoms/postsAtoms';
+import LogoutButton from './logout';
 
 
 
@@ -64,7 +65,7 @@ const ProfileTab = () => {
                     </div>
                 )}
                 
-                
+                <LogoutButton></LogoutButton>
             </div>
         </div>
     );

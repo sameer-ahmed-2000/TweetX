@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export function FunctionButton({label,onClick}){
     return <button onClick={onClick} type="button"

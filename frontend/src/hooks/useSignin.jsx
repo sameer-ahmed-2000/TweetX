@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { useAuth } from '../authentications/AuthContext';
+
 
 export function useSignin() {
     const navigate = useNavigate();
+    const {login}=useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -24,7 +25,8 @@ export function useSignin() {
                 password
             });
             localStorage.setItem('token', response.data.token);
-            navigate('/mainpage');
+            login(response.data.token);
+            navigate('/main');
         } catch (err) {
             setError('Sign in failed, Please check your credentials and try again');
         } finally {

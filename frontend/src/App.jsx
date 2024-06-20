@@ -3,10 +3,10 @@ import './App.css'
 import { Signin } from "./pages/signin"
 import { Main } from './pages/mainpage'
 import { Signup } from './pages/signup'
+import React from 'react';
 import { AuthProvider } from './authentications/AuthContext'
 import { ProtectedRoute } from './authentications/ProtectedRoute'
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { PublicRoute } from './authentications/PublicRoute'
 
 function App() {
 
@@ -14,10 +14,10 @@ function App() {
     <AuthProvider>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Signin />} />
-      <Route path='/signup' element={<ProtectedRoute><Signup></Signup></ProtectedRoute>}></Route>
-      <Route path='/mainpage' element={<ProtectedRoute><Main></Main></ProtectedRoute>}></Route>
-      <Route path='*' element={<Navigate to='/mainpage'/>}/>
+      <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} ></Route>
+      <Route path='/signup' element={<PublicRoute><Signup /></PublicRoute>}></Route>
+      <Route path='/main' element={<ProtectedRoute><Main></Main></ProtectedRoute>}></Route>
+      <Route path='*' element={<Navigate to='/signin'/>}/>
     </Routes>
     </BrowserRouter>
     </AuthProvider>
